@@ -41,7 +41,7 @@ class realmd::join::password {
   $_args = strip(join(concat($_realm_args, $_computer_name_arg, $_extra_join_options), ' '))
 
   if $facts['os']['release']['major'] == '6' and $facts['os']['family'] == 'RedHat' {
-    $_command = "echo -n ${_password} | adcli join --login-user=${_user} --domain=${_domain} --domain-ou '${_ou}' --computer-name ${_computer_name} --stdin-password" #lint:ignore:140chars
+    $_command = "echo -n ${_password} | adcli join --login-user=${_user} --domain=${_domain} --domain-ou '${_ou}' --stdin-password" #lint:ignore:140chars
 
   } else {
     file { '/usr/libexec':
